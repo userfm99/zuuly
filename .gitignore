@@ -20,3 +20,5 @@
 *.iml
 out
 gen
+/test/
+/test/zuuly_test.go
