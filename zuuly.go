@@ -72,7 +72,7 @@ func New(RequestAttr *httpclient.RequestAttr) *Zuuly {
 	return &Zuuly{RequestAttr: RequestAttr}
 }
 
-func (z *Zuuly) GetProxy(keyFunc FilterKeyFunc) (*Proxy, error) {
+func (z *Zuuly) GetProxy(filterKeyFunc FilterKeyFunc) (*Proxy, error) {
 	c := httpclient.New(httpclient.DefaultClientTimeOut)
 	resp, err := c.Exchange(z.RequestAttr)
 	if err != nil {
@@ -93,8 +93,11 @@ func (z *Zuuly) GetProxy(keyFunc FilterKeyFunc) (*Proxy, error) {
 	// Parse zuul routes
 	zuulRoutes := make(map[string]ZuulRoute)
 	propertySources := cloudConfig.PropertySources[0].Source
+	var key *string
 	for k, v := range propertySources {
-		key := keyFunc(&k)
+		if key = &k; filterKeyFunc != nil {
+			key = filterKeyFunc(&k)
+		}
 		if key != nil {
 			if strings.HasSuffix(*key, ".url") {
 				*key = strings.Replace(*key, ".url", "", 1)
