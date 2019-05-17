@@ -1,7 +1,6 @@
 package zuuly
 
 import (
-	"alfacart/zuuly/httpclient"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -10,6 +9,8 @@ import (
 	"os"
 	"regexp"
 	"strings"
+
+	"git.alfakart.com/mobile-api/zuuly/httpclient"
 )
 
 type FilterKeyFunc func(key *string) *string
