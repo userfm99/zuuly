@@ -3,14 +3,13 @@ package zuuly
 import (
 	"encoding/json"
 	"fmt"
+	"git.alfacart.com/mobile-api/zuuly/httpclient"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"regexp"
 	"strings"
-
-	"git.alfakart.com/mobile-api/zuuly/httpclient"
 )
 
 type FilterKeyFunc func(key *string) *string
