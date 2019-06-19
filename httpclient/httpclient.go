@@ -3,6 +3,7 @@ package httpclient
 import (
 	"github.com/gojektech/heimdall"
 	"github.com/gojektech/heimdall/httpclient"
+
 	"io"
 	"net/http"
 	"net/url"
