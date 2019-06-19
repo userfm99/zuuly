@@ -1,4 +1,4 @@
-module git.alfakart.com/mobile-api/zuuly
+module github.com/userfm99/zuuly
 
 require (
 	github.com/gojektech/heimdall v5.0.2+incompatible

@@ -3,7 +3,7 @@ package zuuly
 import (
 	"encoding/json"
 	"fmt"
-	"git.alfakart.com/mobile-api/zuuly/httpclient"
+	"github.com/userfm99/zuuly/httpclient"
 	"io/ioutil"
 	"net/http"
 	"net/url"
