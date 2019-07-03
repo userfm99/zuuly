@@ -22,6 +22,7 @@ type RequestAttr struct {
 	Method    string   // Required
 	Body      io.Reader
 	HeaderMap map[string]string
+	Timeout   time.Duration
 }
 
 type C struct {
@@ -29,7 +30,11 @@ type C struct {
 }
 
 func New(timeOut time.Duration) *C {
-	return &C{TimeOut: timeOut}
+	var c = C{TimeOut: DefaultClientTimeOut}
+	if timeOut >= DefaultClientTimeOut {
+		c.TimeOut = timeOut
+	}
+	return &c
 }
 
 func (c *C) Exchange(requestAttr *RequestAttr) (*http.Response, error) {

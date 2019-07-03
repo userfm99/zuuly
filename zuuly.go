@@ -73,7 +73,7 @@ func New(RequestAttr *httpclient.RequestAttr) *Zuuly {
 }
 
 func (z *Zuuly) GetProxy(filterKeyFunc FilterKeyFunc) (*Proxy, error) {
-	c := httpclient.New(httpclient.DefaultClientTimeOut)
+	c := httpclient.New(z.RequestAttr.Timeout)
 	resp, err := c.Exchange(z.RequestAttr)
 	if err != nil {
 		return nil, httpclient.NewHTTPError(http.StatusInternalServerError, "ZUULY: "+err.Error())
